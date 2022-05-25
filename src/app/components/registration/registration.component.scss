@@ -1,60 +1,69 @@
-.form-container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    flex-flow: row wrap;
-}
-
-.form {
-    background: #ffffff 0% 0% no-repeat padding-box;
-    box-shadow: 0px 3px 6px #00000029;
-    border: 1px solid lightgray;
-    border-radius: 8px;
-    padding: 2%;
-    display: flex;
-    flex-flow: row wrap;
-}
-
 .form-head-text {
     text-align: left;
     font: normal normal normal 28px/37px Roboto;
     text-transform: capitalize;
     justify-content: left;
 }
+ 
+ 
+ .borderStyle {
+     display: flex;
+     flex-direction: row;
+     border: 1px solid lightgray;
+     width: 50%;
+     margin-top: 30px;
+     box-shadow: 0px 3px 6px #00000029;
+     justify-content: center;
+     align-items: center;
+     padding-left: 30px;
+     padding-top: 20px;
+     padding-bottom: 20px;
+     height: 90%;
+     border-radius: 2%;
+ }
 
-.form-content {
-    display: flex;
-    flex-flow: column wrap;
-    width: 100%;
-}
+ .imgSize {
+     border: 5px solid yellow;
+     float: right;
+     width: 200px;
+     height: 300px;
+     margin: 0 auto;
+     padding-left: 500px;
+     flex-wrap: nowrap;
+ }
 
-.form-footer {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin: 5% 0;
-    text-align: center;
-}
+ .buttonStyle {
+     border: 0px;
+     background-color: white;
+     color: #3f51b5;
+     font-size: medium;
+     margin-top: 5px;
+ }
 
-.form-field {
-    margin-right: 10px;
-}
+ .form-footer {
+     width: 100%;
+     display: flex;
+     justify-content: space-between;
+     margin: 5% 0;
+     text-align: center;
+ }
 
-.image-signup{
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
-    align-items: center;
-}
+ .account {
+     display: flex;
+     flex-direction: column;
+     margin-left: 50px;
+     border: 60px;
+     font-size: medium;
+     align-items: center;
+     width: 100%;
+     height: 55%;
+ }
 
-#image-text{
-    text-align: center;
-    font-size: medium;
-}
+ .Spaces .mat-form-field+.mat-form-field {
+     margin-left: 5px;
+     width: fit-content;
+ }
 
-.ShowCheckbox{
-    margin: 3%;
-  }
+ .widthforBox {
+     width: 100%;
+ }
