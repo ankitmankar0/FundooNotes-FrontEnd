@@ -9,6 +9,7 @@ import {  FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
   loginForm! : FormGroup;
   submitted = false;
+  hide : boolean = true;
 
   constructor(private formBuilder : FormBuilder) { }
 
@@ -18,21 +19,14 @@ export class LoginComponent implements OnInit {
     password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
-  OnSubmit(){
-    console.log("inside submit");
-    if(this.loginForm.valid)
-    {
-      console.log("valid Data", this.loginForm.value);
-      let data ={
-        email: this.loginForm.value.email,       
-        password: this.loginForm.value.password,
-      }
-    }
-    else
-    {
-      console.log("invalid data", this.loginForm.value)
+  OnSubmit() {
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.loginForm.invalid) {
+        return;
     }
 
-  }
-
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.loginForm.value))
+}
 }

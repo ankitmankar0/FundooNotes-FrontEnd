@@ -10,6 +10,7 @@ export class RegistrationComponent implements OnInit {
 
   registerForm!: FormGroup;
   submitted = false;
+  hide : boolean = true;
   constructor(private formBuilder: FormBuilder) { }
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
@@ -21,18 +22,17 @@ export class RegistrationComponent implements OnInit {
     });
   }
   OnSubmit() {
-    console.log("inside submit");
-    if (this.registerForm.valid) {
-      console.log("valid data", this.registerForm.value);
-      let data = {
-        firstName:this.registerForm.value.firstName,
-        lastName:this.registerForm.value.lastName,
-        email: this.registerForm.value.email,       
-        password: this.registerForm.value.password,
-      }
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.registerForm.invalid) {
+        return;
     }
-    else {
-      console.log("Invalid Data", this.registerForm.value);
-    }
-  }
+
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value))
+}
+
+ShowPassword(){
+  this.hide = !this.hide;            
+}
 }

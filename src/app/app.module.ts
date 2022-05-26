@@ -12,6 +12,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { LoginComponent } from './components/login/login.component';
+import { ForgetpasswordComponent } from './components/forgetpassword/forgetpassword.component';
+import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 
 
 @NgModule({
@@ -19,6 +21,8 @@ import { LoginComponent } from './components/login/login.component';
     AppComponent,
     RegistrationComponent,
     LoginComponent,
+    ForgetpasswordComponent,
+    ResetpasswordComponent,
   ],
   imports: [
     BrowserModule,
