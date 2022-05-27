@@ -25,6 +25,7 @@ export class RegistrationComponent implements OnInit {
       confirmPassword: ['', Validators.required]
     });
   }
+  get f() { return this.registerForm.controls; }
   OnSubmit() {
     this.submitted = true;
 
@@ -35,14 +36,14 @@ export class RegistrationComponent implements OnInit {
         lastName:this.registerForm.value.lastName,
         email: this.registerForm.value.email,       
         password: this.registerForm.value.password,
-        address:""
+        address:"pune"
         }
         this.user.registration(reqData).subscribe((response:any)=>{
           console.log(response);
         })
     }
 
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value))
+    //alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value))
 }
 
 ShowPassword(){

@@ -16,6 +16,6 @@ export class UserServiceService {
         'Content-Type': 'application/json'
       })
     }
-    return this.httpService.postService('/User/register', reqdata)
+    return this.httpService.postService('User/register', reqdata)
   }
 }
