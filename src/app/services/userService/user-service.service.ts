@@ -16,6 +16,17 @@ export class UserServiceService {
         'Content-Type': 'application/json'
       })
     }
-    return this.httpService.postService('User/register', reqdata)
+    return this.httpService.postService('User/register', reqdata, false, header)
+  }
+
+  login(reqdata: any) {
+    console.log(reqdata)
+    let header = {
+      Headers: new HttpHeaders({
+        'Content-type': 'application/json'
+      })
+    }
+    return this.httpService.postService(`User/login/${reqdata.email}/${reqdata.password}`, reqdata, false, header)
   }
 }
+
