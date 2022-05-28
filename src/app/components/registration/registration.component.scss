@@ -34,3 +34,19 @@
     border-radius: 10px;
     box-shadow: 0px 3px 6px #00000029;
  }
+ @media only screen and (max-width: 992px) {
+    .registration {
+        padding: 30px;
+        margin: 30px;
+    }
+
+    .registration .FirstLastName .mat-form-field {margin-bottom: 0 !important;}
+}
+@media only screen and (max-width: 600px) {
+    .registration {
+        border: none;
+        padding: 28px;
+        margin: 0px;
+        border-radius: 0px;
+    }
+}

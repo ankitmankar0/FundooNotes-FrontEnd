@@ -1,3 +1,4 @@
+/* JavaScript imports */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -18,7 +19,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { HttpClientModule } from '@angular/common/http';
 
 
-
+/* the AppModule class with the @NgModule decorator */
 @NgModule({
   declarations: [
     AppComponent,

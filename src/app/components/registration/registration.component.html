@@ -1,13 +1,14 @@
-<div fxFlex=95 fxLayout="column" fxLayoutAlign="center center">
+<div fxFlex=100 fxLayout="column" fxLayoutAlign="center center">
     <div fxLayout="row" fxLayoutAlign="center center" class="registration">
-        <div class="fundooReg">
+        <div class="fundooRegister">
             <div class="form-head-text">
                 <img src='../../../assets/Fundoo.png' alt="" width ='90' height='12'/>
                 <h2>Create your FundooNotes Account</h2>
               </div>
             <form [formGroup]="registerForm" (ngSubmit)="OnSubmit()">
-                <div class="FirstLastName" fxLayoutGap="15px">
-                    <mat-form-field appearance="outline" class="firstName">
+                
+                <div class="FirstLastName" fxLayoutGap="15px" fxLayout.xs="column" >
+                    <mat-form-field appearance="outline" class="firstName" >
                         <mat-label>First Name</mat-label>
                         <input matInput type="First name" formControlName="firstName">
                         <mat-error>Enter valid first name</mat-error>
@@ -31,7 +32,7 @@
                 <button mat-button class="buttonStyle" style="margin-top: 7px;">Use my current email address
                     instead </button>
                     
-                <div class="password" fxLayoutGap="15px">
+                <div class="password" fxLayoutGap="15px" fxLayout.xs="column">
                     <mat-form-field appearance="outline">
                         <mat-label>Password</mat-label>
                         <input matInput [type]="hide ? 'password' : 'text'" formControlName="password"
