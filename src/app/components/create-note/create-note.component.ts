@@ -10,18 +10,33 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class CreateNoteComponent implements OnInit {
   createnoteForm!: FormGroup;
-
-  title: any;
-  description: any;
+  submitted = false;
   isShow = false;
-  constructor(private noteService: NoteService, private formBuilder: FormBuilder,) { }
+  constructor(private formBuilder: FormBuilder,private note: NoteService,) { }
 
   ngOnInit(): void {
+    this.createnoteForm = this.formBuilder.group({
+      title: ['', [Validators.required]],
+      description: ['', [Validators.required]],
 
+    });
   }
 
-  OnSubmit(){
+  OnSubmit() {
+    this.submitted = true;
+    console.log("api calling")
     
+    if (this.createnoteForm.valid) {
+      let reqData = {
+        title: this.createnoteForm.value.title,
+        description: this.createnoteForm.value.description,
+        bgColour:"orange"
+      }
+      this.note.createNote(reqData).subscribe((response: any) => {
+        console.log(response);
+        localStorage.setItem("token", response.data)
+      })
+    }
   }
   show() {
     this.isShow = true

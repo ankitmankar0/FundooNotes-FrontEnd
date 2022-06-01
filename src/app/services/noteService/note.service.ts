@@ -6,19 +6,31 @@ import { HttpserviceService } from '../httpService/httpservice.service';
   providedIn: 'root'
 })
 export class NoteService {
-  token:any;
+  token: any;
 
-  constructor(private httpservice:HttpserviceService) { 
-    this.token=localStorage.getItem('token')
+  constructor(private httpservice: HttpserviceService) {
+    this.token = localStorage.getItem('token')
   }
 
-  createNote(reqdata: any){
-    let header = {
-      Headers: new HttpHeaders({
-        'Content-type': 'application/json',
-        'Authorization': 'Bearer ' +this.token
+  createNote(reqdata: any) {
+    console.log(reqdata);
+    let headerOption = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json-patch+json',
+        'Authorization': 'Bearer ' + this.token
       })
     }
-    return this.httpservice.postService('Note/AddNote', reqdata, true, header);
+    return this.httpservice.postService('Note/AddNote', reqdata, true, headerOption);
+  }
+
+  getallNote(){
+    console.log();
+    let headerOption = {
+      headers: new  HttpHeaders({
+        'Content-type': 'application/json-patch+json',
+        'Authorization': 'Bearer ' + this.token
+      })
+    }
+    return this.httpservice.getService('Note/GetAllNotes', true, headerOption);
   }
 }
