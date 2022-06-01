@@ -7,18 +7,31 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegistrationComponent } from './components/registration/registration.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatIconModule} from '@angular/material/icon';
+import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
+import {MatInputModule } from '@angular/material/input';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { LoginComponent } from './components/login/login.component';
 import { ForgetpasswordComponent } from './components/forgetpassword/forgetpassword.component';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import {MatListModule} from '@angular/material/list';
+import { CreateNoteComponent } from './components/create-note/create-note.component';
+import { GetAllNotesComponent } from './components/get-all-notes/get-all-notes.component';
+import { DisplaynoteComponent } from './components/displaynote/displaynote.component';
+import { IconsComponent } from './components/icons/icons.component';
+import { TrashComponent } from './components/trash/trash.component';
+import { ArchiveComponent } from './components/archive/archive.component';
 
 
+
+//entry for all the modules, component and services,
 /* the AppModule class with the @NgModule decorator */
 @NgModule({
   declarations: [
@@ -27,6 +40,13 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     ForgetpasswordComponent,
     ResetpasswordComponent,
+    DashboardComponent,
+    CreateNoteComponent,
+    GetAllNotesComponent,
+    DisplaynoteComponent,
+    IconsComponent,
+    TrashComponent,
+    ArchiveComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,12 +56,16 @@ import { HttpClientModule } from '@angular/common/http';
     MatButtonModule,
     MatInputModule,
     MatCheckboxModule,
+    MatListModule,
     FormsModule,
     ReactiveFormsModule, 
     FlexLayoutModule,
     MatInputModule,
     MatSnackBarModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

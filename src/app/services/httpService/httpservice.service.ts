@@ -10,11 +10,16 @@ export class HttpserviceService {
   baseurl = environment.baseUrl;
   constructor(private httpClient: HttpClient) { }
   postService(Url: string, reqdata: any, token: boolean = false, httpOptions: any = {}) {
-    return this.httpClient.post(this.baseurl + Url, reqdata, token && httpOptions)
+    return this.httpClient.post(this.baseurl + Url, reqdata, token && httpOptions);
   }
 
-  getService(Url: string='', tokenRequired: boolean = false, httpOptions: any = {}) {
-    return this.httpClient.get(this.baseurl + Url, tokenRequired && httpOptions)
+  putService(Url: string, reqdata: any, token: boolean = false, httpOptions: any = {}) {
+    return this.httpClient.put(this.baseurl + Url, reqdata, token && httpOptions);
   }
+
+  // putService(url: string, reqData: any, token: boolean = false, headers: any) {
+  //   console.log(reqData)
+  //   return this.httpClient.put(this.baseurl+url, reqData, token && headers)
+  // }
 }
 

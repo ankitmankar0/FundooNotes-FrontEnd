@@ -1,0 +1,16 @@
+<div class="container" fxLayout="column" fxLayoutAlign="space-between center">
+    <div class="note" style="border: 2px solid rgb(227, 222, 222); width:40%">
+        <div *ngIf="isShow" fxLayout="row">
+            <input class="title" style="width:99%;" placeholder="Title">
+             <img src="../../../assets/noteIcons/pinnote.svg" alt="pin">
+             
+        </div>
+
+        <div *ngIf="!isShow || isShow" (click)="show()">
+            <input class="takenote" style="width: 99%;" placeholder="Take a note ...">
+        </div>
+        <div class="flex" *ngIf="isShow" fxLayout="row" fxLayoutAlign="space-between centre">
+                <app-icons></app-icons>
+                <button mat-button  (click)="close()">Close</button>
+        </div>
+    </div>
