@@ -10,19 +10,20 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
 import { TrashComponent } from './components/trash/trash.component';
 
 const routes: Routes = [
-  {path: 'login', component:LoginComponent},
-  {path: 'registration', component:RegistrationComponent},
-  {path: 'forgetpassword', component:ForgetpasswordComponent},
-  {path: 'reset-password/:token', component: ResetpasswordComponent},
+  { path: 'login', component: LoginComponent },
+  { path: 'registration', component: RegistrationComponent },
+  { path: 'forgetpassword', component: ForgetpasswordComponent },
+  { path: 'reset-password/:token', component: ResetpasswordComponent },
+  {path:'',redirectTo: "/login", pathMatch: 'full'},
   {path: 'dashboard', component: DashboardComponent,
 
-  children:[
-    {path:'notes', component:GetAllNotesComponent},
-    {path:'archive', component:ArchiveComponent},
-    {path:'Trash', component:TrashComponent},  
-  ]
-}
-  
+    children: [
+      { path: 'notes', component: GetAllNotesComponent },
+      { path: 'archive', component: ArchiveComponent },
+      { path: 'Trash', component: TrashComponent },
+    ]
+  }
+
 ];
 
 @NgModule({

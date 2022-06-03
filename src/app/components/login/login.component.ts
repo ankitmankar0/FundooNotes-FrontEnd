@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserServiceService } from 'src/app/services/userService/user-service.service';
+import { Router } from '@angular/router';
+import { MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +14,7 @@ export class LoginComponent implements OnInit {
   submitted = false;
   hide: boolean = true;
   token: any
-  constructor(private formBuilder: FormBuilder, private user: UserServiceService) {
+  constructor(private formBuilder: FormBuilder, private snackBar: MatSnackBar, private user: UserServiceService,private router:Router) {
     this.token = localStorage.getItem("token");
   }
 
@@ -34,6 +36,10 @@ export class LoginComponent implements OnInit {
       this.user.login(reqData).subscribe((response: any) => {
         console.log(response);
         localStorage.setItem("token", response.data)
+        this.router.navigateByUrl("/dashboard/notes");
+        this.snackBar.open('Login successfully', '', {
+          duration:2000,
+         }); 
       })
     }
 

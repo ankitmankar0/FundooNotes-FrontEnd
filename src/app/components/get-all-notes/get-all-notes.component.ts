@@ -7,6 +7,7 @@ import { NoteService } from 'src/app/services/noteService/note.service';
   styleUrls: ['./get-all-notes.component.scss']
 })
 export class GetAllNotesComponent implements OnInit {
+  noteList:any;
 
   constructor(private note:NoteService) { }
 
@@ -16,9 +17,16 @@ export class GetAllNotesComponent implements OnInit {
   getAllNote(){
     this.note.getallNote().subscribe((response:any)=>{
       console.log(response);
-      localStorage.setItem("token", response.data)
+      this.noteList=response.data;
+      this.noteList=this.noteList.filter((obj:any)=>{
+        return obj.isTrash===false
+      })
 
     })
     console.log("call api");
   }
+
+  receiveMessage(event:any){
+    this.getAllNote();
+ }
 }

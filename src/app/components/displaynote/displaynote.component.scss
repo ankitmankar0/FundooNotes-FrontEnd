@@ -1,0 +1,28 @@
+.display{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .notes{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 220px;
+    margin-left: 30px;
+    height: 100px;
+  }
+
+  ::ng-deep .my-custom-dialog-class {
+    mat-dialog-container {
+      padding: 0;
+    }
+  }
+  .flex{
+   
+    visibility: hidden;
+  }
+  .displayNote:hover .icons{
+    display: block; 
+  }
+  

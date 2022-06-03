@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NoteService } from 'src/app/services/noteService/note.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -12,7 +13,7 @@ export class CreateNoteComponent implements OnInit {
   createnoteForm!: FormGroup;
   submitted = false;
   isShow = false;
-  constructor(private formBuilder: FormBuilder,private note: NoteService,) { }
+  constructor(private formBuilder: FormBuilder,private note: NoteService,private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.createnoteForm = this.formBuilder.group({
@@ -33,7 +34,7 @@ export class CreateNoteComponent implements OnInit {
         bgColour:"orange"
       }
       this.note.createNote(reqData).subscribe((response: any) => {
-        console.log(response);
+        console.log(response)
         localStorage.setItem("token", response.data)
       })
     }

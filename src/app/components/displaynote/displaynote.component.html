@@ -1,0 +1,13 @@
+<div class="display ">
+    <div  *ngFor="let note of NoteArray">
+        <mat-card class="notes" [style.background]="note.bgColor">
+            <div class="Title">
+                <p (click)="openDialog(note)">{{note.title}}</p>
+                <p (click)="openDialog(note)">{{note.description}}</p>
+            </div>
+            <div>
+                <app-icons class="icons" [notedata]="note" (refresh)="receivedMessage($event)"></app-icons>
+            </div>
+        </mat-card>
+    </div>
+</div>

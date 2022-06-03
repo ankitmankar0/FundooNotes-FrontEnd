@@ -28,6 +28,11 @@ import { DisplaynoteComponent } from './components/displaynote/displaynote.compo
 import { IconsComponent } from './components/icons/icons.component';
 import { TrashComponent } from './components/trash/trash.component';
 import { ArchiveComponent } from './components/archive/archive.component';
+import {MatCardModule} from '@angular/material/card';
+import { UpdateComponent } from './components/update/update.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { AuthguardService } from './services/authService/authguard.service';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 
@@ -47,6 +52,7 @@ import { ArchiveComponent } from './components/archive/archive.component';
     IconsComponent,
     TrashComponent,
     ArchiveComponent,
+    UpdateComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,9 +71,14 @@ import { ArchiveComponent } from './components/archive/archive.component';
     HttpClientModule,
     MatSidenavModule,
     MatIconModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatCardModule,
+    MatDialogModule,
+    MatMenuModule
   ],
-  providers: [],
+  providers: [
+    AuthguardService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -24,5 +24,9 @@ export class HttpserviceService {
   //   console.log(reqData)
   //   return this.httpClient.put(this.baseurl+url, reqData, token && headers)
   // }
+
+  deleteService(Url: string,token: boolean = false, httpOptions: any = {}) {
+    return this.httpClient.delete(this.baseurl + Url, token && httpOptions);
+  }
 }
 

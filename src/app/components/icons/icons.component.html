@@ -1,17 +1,32 @@
 <div class="flex" fxLayout="row" fxLayoutAlign="start end">
-        
+
     <img class="icon" src="../../../assets/noteIcons/Remind me.svg" alt="Remind Me">
-    
-        <img class="icon" src="../../../assets/noteIcons/background option.svg" alt="backgroundcColour">
-    
-        <img class="icon" src="../../../assets/noteIcons/collaborator.svg" alt="Collabarator">
-    
-        <img class="icon" src="../../../assets/noteIcons/image.svg" alt="image">
-    
-    
-        <img class="icon" src="../../../assets/noteIcons/archive.svg" alt="archive">
-          
-    
-        <img class="icon" src="../../../assets/noteIcons/more.svg" alt="more">
-           
+
+    <img class="icon" src="../../../assets/noteIcons/background option.svg" alt="backgroundcColour">
+
+    <img class="icon" src="../../../assets/noteIcons/collaborator.svg" alt="Collabarator">
+
+    <img class="icon" src="../../../assets/noteIcons/image.svg" alt="image">
+
+
+    <img class="icon" src="../../../assets/noteIcons/archive.svg" alt="archive">
+
+    <div>
+        <button class="more" mat-icon-button matTooltip="More" [matMenuTriggerFor]="menu"><img class="icon"
+                src="../../../assets/noteIcons/more.svg" alt="more"></button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="trash(notedata)">Delete note</button>
+            <button mat-menu-item>Add drawing</button>
+            <button mat-menu-item>Make a copy</button>
+            <button mat-menu-item>Show checkboxes</button>
+            <button mat-menu-item>Copy to google Docs</button>
+        </mat-menu>
+    </div>
+    <div *ngIf="isTrashComponent">
+        <div class="flex" *ngIf="isTrashComponent">
+                <div class="icon" mat-icon-button matTooltip="Delete Forever" (click)="delete()"> <img
+                                src="../../../assets/noteIcons/delete forever.svg" width="25px" height="25px">
+                </div>
+        </div>
+</div>
 </div>

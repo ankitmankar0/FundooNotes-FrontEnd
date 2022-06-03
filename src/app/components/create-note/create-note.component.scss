@@ -6,7 +6,7 @@
 
 .note {
     padding: 10px;
-    border-radius: 15px;
+    border-radius: 8px;
     box-shadow: 0px 3px 6px #00000029;
     border: 1px solid lightgray;
 
@@ -21,7 +21,7 @@
 }
 
 .takenote {
-    height: 30px;
+    height: 25px;
     font-size: 14px;
     font-family: sans-serif;
     word-wrap: break-word;
@@ -57,7 +57,6 @@ button:focus {
 
 .border {
     margin: auto;
-
 }
 
 .icons {
