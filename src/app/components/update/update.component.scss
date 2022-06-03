@@ -1,0 +1,22 @@
+.class{
+    width: 90%;
+    height: 80%;
+    min-height: 125px;
+    padding: 16px 16px 8px;
+    border: none;
+    border-radius: 10px;
+    border-width : 0px;
+    margin-bottom : 20px;
+    margin: 10px 10px;
+    // position: relative;
+    box-shadow: 0px 3px 6px #00000029;
+}
+
+
+.mat-title, .class textarea {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 10px 5px;
+    border-radius: 10px;
+}

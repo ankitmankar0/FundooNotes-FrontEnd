@@ -8,6 +8,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 import { TrashComponent } from './components/trash/trash.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -15,7 +16,7 @@ const routes: Routes = [
   { path: 'forgetpassword', component: ForgetpasswordComponent },
   { path: 'reset-password/:token', component: ResetpasswordComponent },
   {path:'',redirectTo: "/login", pathMatch: 'full'},
-  {path: 'dashboard', component: DashboardComponent,
+  {path: 'dashboard', canActivate:[AuthGuard], component: DashboardComponent,
 
     children: [
       { path: 'notes', component: GetAllNotesComponent },

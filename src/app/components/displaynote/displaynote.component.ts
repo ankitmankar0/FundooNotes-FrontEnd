@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component,EventEmitter, Input,Output, OnInit } from '@angular/core';
 import { NoteService } from 'src/app/services/noteService/note.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { UpdateComponent } from '../update/update.component';
@@ -11,6 +11,7 @@ import { UpdateComponent } from '../update/update.component';
 export class DisplaynoteComponent implements OnInit {
   note:any
   @Input()NoteArray:any
+  @Output() refreshEvent= new EventEmitter<any>();
 
 
 
@@ -32,5 +33,6 @@ export class DisplaynoteComponent implements OnInit {
 
   receivedMessage(event:any){
     console.log(event);
+    this.refreshEvent.emit("hello")
  }
 }

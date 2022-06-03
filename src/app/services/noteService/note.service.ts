@@ -70,4 +70,29 @@ export class NoteService {
     }
     return this.httpservice.putService(`Note/IsTrash/${noteId}`, {}, true, headerOption)
   }
+
+  archieveNote( noteId: any) {
+
+    console.log("token", this.token)
+  
+    let header = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.token
+      })
+    }
+    return this.httpservice.putService(`Note/ArchieveNote/${noteId}`,{}, true, header)
+  }
+
+  colorPallete( noteId: any, color:any){
+    console.log("token",this.token);
+  
+    let header = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.token
+      })
+   }
+   return this.httpservice.putService(`Note/ChangeColour/${noteId}?color=${color}`,color, true, header)
+  } 
 }

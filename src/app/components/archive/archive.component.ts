@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NoteService } from 'src/app/services/noteService/note.service';
 
 @Component({
   selector: 'app-archive',
@@ -6,10 +7,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./archive.component.scss']
 })
 export class ArchiveComponent implements OnInit {
+  noteList: any
+  constructor(private note: NoteService) { }
 
-  constructor() { }
 
   ngOnInit(): void {
+    this.getAllNote();
+  }
+  getAllNote() {
+    this.note.getallNote().subscribe((response: any) => {
+      console.log(response.data);
+      this.noteList = response.data;
+      this.noteList = this.noteList.filter((obj: any) => {
+        return obj.isArchieve===true
+      })
+
+    })
+    console.log("call api");
   }
 
+  receiveMessage(event: any) {
+    this.getAllNote();
+  }
 }
