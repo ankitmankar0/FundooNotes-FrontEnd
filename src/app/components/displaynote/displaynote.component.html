@@ -1,6 +1,6 @@
 <div class="display ">
     <div  *ngFor="let note of NoteArray">
-        <mat-card class="notes" [style.background]="note.bgColor">
+        <mat-card class="notes" [style.background]="note.bgColour">
             <div class="Title">
                 <p (click)="openDialog(note)">{{note.title}}</p>
                 <p (click)="openDialog(note)">{{note.description}}</p>

@@ -1,8 +1,10 @@
-<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
-    <mat-toolbar color="white" class="example-toolbar">
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches" fxLayout="column">
+    <mat-toolbar color="white" class="example-toolbar" fxLayout.xs="row">
+        <div fxLayout="row" ngClass.xs="menu-xs" fxLayout.xs="10" >
             <button style="border: 0px;" mat-icon-button (click)="snav.toggle()">
                 <mat-icon>menu</mat-icon>
             </button>
+            </div>
         <img class="keepImage" src="../../../assets/DashboardIcons/keep.png">
         <!-- <h1 class="example-app-name">FundooNotes</h1> -->
         <div class="example-app-name"><img src='../../../assets/Fundoo.png' alt="" width='110' height='14' /></div>
@@ -24,15 +26,15 @@
         </div>
 
         <div>
-            <button class="button"><img style="padding-top: 10px;block-size:25px;"
+            <button class="button" ><img style="padding-top: 10px;block-size:25px;"
                     src="../../../assets/DashboardIcons//settings.svg"></button>
         </div>
         <div>
             <button class="button"><img style="padding-top: 12px; padding-left: 50px;block-size:25px;"
                     src="../../../assets/DashboardIcons/apps.svg"></button>
         </div>
-        <div>
-            <button class="button"><img style="padding-top:12px margin-left=50px;block-size:25px;margin-top: 12px;"
+        <div >
+            <button class="button" (click)="logout()"><img style="padding-top:12px margin-left=50px;block-size:25px;margin-top: 12px;"
                     src="../../../assets/DashboardIcons/person.svg"></button>
         </div>
     </mat-toolbar>

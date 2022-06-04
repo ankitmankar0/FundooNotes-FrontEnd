@@ -36,6 +36,9 @@ export class CreateNoteComponent implements OnInit {
       this.note.createNote(reqData).subscribe((response: any) => {
         console.log(response)
         localStorage.setItem("token", response.data)
+        this.snackBar.open('Note added successfully', '', {
+          duration:2000,
+         }); 
       })
     }
   }

@@ -7,7 +7,7 @@ import { NoteService } from 'src/app/services/noteService/note.service';
   styleUrls: ['./get-all-notes.component.scss']
 })
 export class GetAllNotesComponent implements OnInit {
-  noteList:any;
+  noteList:any;   //array type of var
 
   constructor(private note:NoteService) { }
 

@@ -29,7 +29,7 @@ export class UpdateComponent implements OnInit {
     let data = {
       title: this.title,
       description: this.description,
-      bgColour: "orange"
+      bgColour: "string"
     }
     this.note.updateNote(data, this.data.noteId).subscribe((response: any) => {
       console.log(response);

@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'forgetpassword', component: ForgetpasswordComponent },
   { path: 'reset-password/:token', component: ResetpasswordComponent },
   {path:'',redirectTo: "/login", pathMatch: 'full'},
-  {path: 'dashboard', canActivate:[AuthGuard], component: DashboardComponent,
+  {path: 'dashboard',  component: DashboardComponent,canActivate:[AuthGuard],
 
     children: [
       { path: 'notes', component: GetAllNotesComponent },

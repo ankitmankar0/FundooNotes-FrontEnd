@@ -2,16 +2,27 @@
 
     <img class="icon" src="../../../assets/noteIcons/Remind me.svg" alt="Remind Me">
 
-    <img class="icon" src="../../../assets/noteIcons/background option.svg" alt="backgroundcColour">
+    <div matTooltip="Background color" [matMenuTriggerFor]="color">
+        <img class="icon" src="../../../assets/noteIcons/background option.svg">
+        <mat-menu #color="matMenu">
+                <div fxLayout="row wrap" style="padding-left: 8px;">
+                        <div *ngFor="let color of colorsArr" class="colorBox">
+                                <button class="colors" mat-icon-button mat-raised-button
+                                        [style.background]="color?.Colorcode"
+                                        (click)="changeColor(color?.Colorcode)"></button>
+                        </div>
+                </div>
+        </mat-menu>
+</div>
 
     <img class="icon" src="../../../assets/noteIcons/collaborator.svg" alt="Collabarator">
 
     <img class="icon" src="../../../assets/noteIcons/image.svg" alt="image">
 
     <div (click)="archieve()">
-    <img class="icon" src="../../../assets/noteIcons/archive.svg" alt="archive">
-</div>
-    <div>
+        <img class="icon" src="../../../assets/noteIcons/archive.svg" alt="archive">
+    </div>
+    <div style="padding-bottom: 6px;">
         <button class="more" mat-icon-button matTooltip="More" [matMenuTriggerFor]="menu"><img class="icon"
                 src="../../../assets/noteIcons/more.svg" alt="more"></button>
         <mat-menu #menu="matMenu">
@@ -24,9 +35,11 @@
     </div>
     <div *ngIf="isTrashComponent">
         <div class="flex" *ngIf="isTrashComponent">
-                <div class="icon" mat-icon-button matTooltip="Delete Forever" (click)="delete()"> <img
-                                src="../../../assets/noteIcons/delete forever.svg" width="25px" height="25px">
-                </div>
+            <div class="icon" mat-icon-button matTooltip="Delete Forever" (click)="delete()"> <img
+                    src="../../../assets/noteIcons/delete forever.svg" width="25px" height="25px">
+            </div>
+            <div class="icon" mat-icon-button matTooltip="Restore" (click)="trash(notedata)"> <img
+                                        src="../../../assets/noteIcons/Restore from trash.svg" width="25px" height="25px"></div>
         </div>
-</div>
+    </div>
 </div>

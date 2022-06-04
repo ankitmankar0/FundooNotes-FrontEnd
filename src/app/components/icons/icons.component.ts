@@ -1,4 +1,4 @@
-import { Component,EventEmitter, Input,Output, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { NoteService } from 'src/app/services/noteService/note.service';
@@ -15,16 +15,18 @@ import { ArchiveComponent } from '../archive/archive.component';
 })
 export class IconsComponent implements OnInit {
   noteId: any;
-  
+
   @Input() notedata: any;
   @Output() refresh = new EventEmitter<string>();
-  archieveMessage="refresh archieve"
+  archieveMessage = "refresh archieve"
 
   isTrashComponent = false;
-  isDisplayNoteComponent=false;
+  isDisplayNoteComponent = false;
   isArchieveComponent = false;
 
-  constructor(private router: ActivatedRoute, private note:NoteService, public dialog: MatDialog, private snackBar: MatSnackBar) { }
+  colorsArr = [{Colorcode:"white", name:"White"},{Colorcode:"rgb(238, 188, 188)", name:"Red"},{Colorcode:"#fbbc04", name:"Orange"},{Colorcode:"#fff475", name:"Yellow"},{Colorcode:"rgb(175, 215, 175)", name:"Green"},{Colorcode:"aqua", name:"aqua"},
+  {Colorcode:"#cbf0f8", name:"Blue"},{Colorcode:"teal", name:"teal"},{Colorcode:"#d7aefb", name:"Purple"},{Colorcode:"#fdcfe8", name:"Pink"},{Colorcode:"#e6c9a8", name:"Brown"},{Colorcode:"#59158c", name:"purple"}];
+  constructor(private router: ActivatedRoute, private note: NoteService, public dialog: MatDialog, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     let Compo = this.router.snapshot.component;
@@ -38,11 +40,11 @@ export class IconsComponent implements OnInit {
     }
     if (Compo == ArchiveComponent) {
       this.isArchieveComponent = true;
-      
+
     }
   }
-  
-  trash(note:any) {
+
+  trash(note: any) {
     this.note.trashNote(this.notedata.noteId).subscribe((response: any) => {
       console.log(response);
       this.refresh.emit("hello")
@@ -68,8 +70,20 @@ export class IconsComponent implements OnInit {
       this.refresh.emit("hello")
       this.snackBar.open('Note Archived', '', {
         duration: 3000,
-       
-      })  
-  })  
+
+      })
+    })
+  }
+
+  changeColor(colour:any)
+  {
+    console.log(colour);
+    this.note.colorPallete(this.notedata.noteId,colour).subscribe((res:any)=>{
+      console.log(res);
+      this.refresh.emit("hello");
+      this.snackBar.open('color changes Successfully', '', {
+        duration: 3000,
+      })
+    })
   }
 }

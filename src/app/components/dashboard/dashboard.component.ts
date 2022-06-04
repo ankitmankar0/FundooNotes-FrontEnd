@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { ChangeDetectorRef, OnDestroy, } from '@angular/core';
+import { Router } from '@angular/router';
+import { MatSnackBar, _SnackBarContainer} from '@angular/material/snack-bar';
 
 
 @Component({
@@ -22,9 +24,11 @@ export class DashboardComponent implements OnDestroy {
        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
   );
 
+  
+
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private router:Router, private snackBar: MatSnackBar) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -35,4 +39,15 @@ export class DashboardComponent implements OnDestroy {
   }
 
   shouldRun = /(^|.)(stackblitz|webcontainer).(io|com)$/.test(window.location.host);
+
+  logout()
+  {
+    localStorage.removeItem('token');
+    this.router.navigateByUrl("/login")
+    console.log("logout sucessfully!!!");
+    this.snackBar.open('Logout Successfully..!!!','..', {
+      duration: 3000,
+    })
+    
+  }
 }
