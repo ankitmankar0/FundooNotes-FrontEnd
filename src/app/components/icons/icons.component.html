@@ -1,45 +1,53 @@
-<div class="flex" fxLayout="row" fxLayoutAlign="start end">
+<div class="flex" fxLayout="row">
+    <div *ngIf="!isTrashComponent" fxLayout="row">
+        <img class="icon" src="../../../assets/noteIcons/Remind me.svg" alt="Remind Me">
 
-    <img class="icon" src="../../../assets/noteIcons/Remind me.svg" alt="Remind Me">
-
-    <div matTooltip="Background color" [matMenuTriggerFor]="color">
-        <img class="icon" src="../../../assets/noteIcons/background option.svg">
-        <mat-menu #color="matMenu">
+        <div matTooltip="Background color" [matMenuTriggerFor]="color">
+            <img class="icon" style="padding-top: 21px;" src="../../../assets/noteIcons/background option.svg">
+            <mat-menu #color="matMenu">
                 <div fxLayout="row wrap" style="padding-left: 8px;">
-                        <div *ngFor="let color of colorsArr" class="colorBox">
-                                <button class="colors" mat-icon-button mat-raised-button
-                                        [style.background]="color?.Colorcode"
-                                        (click)="changeColor(color?.Colorcode)"></button>
-                        </div>
+                    <div *ngFor="let color of colorsArr" class="colorBox">
+                        <button class="colors" mat-icon-button mat-raised-button [style.background]="color?.Colorcode"
+                            (click)="changeColor(color?.Colorcode)"></button>
+                    </div>
                 </div>
-        </mat-menu>
-</div>
+            </mat-menu>
+        </div>
 
-    <img class="icon" src="../../../assets/noteIcons/collaborator.svg" alt="Collabarator">
+        <img class="icon" src="../../../assets/noteIcons/collaborator.svg" alt="Collabarator">
 
-    <img class="icon" src="../../../assets/noteIcons/image.svg" alt="image">
+        <img class="icon" style="opacity: 1;" src="../../../assets/noteIcons/image.svg" alt="image">
 
-    <div (click)="archieve()">
-        <img class="icon" src="../../../assets/noteIcons/archive.svg" alt="archive">
-    </div>
-    <div style="padding-bottom: 6px;">
-        <button class="more" mat-icon-button matTooltip="More" [matMenuTriggerFor]="menu"><img class="icon"
-                src="../../../assets/noteIcons/more.svg" alt="more"></button>
-        <mat-menu #menu="matMenu">
-            <button mat-menu-item (click)="trash(notedata)">Delete note</button>
-            <button mat-menu-item>Add drawing</button>
-            <button mat-menu-item>Make a copy</button>
-            <button mat-menu-item>Show checkboxes</button>
-            <button mat-menu-item>Copy to google Docs</button>
-        </mat-menu>
+        <div *ngIf="isDisplayNoteComponent">
+            <button mat-icon-button matTooltip="Archieve" (click)="archieve()"><img class="icon" style="padding-top: 20px;"
+                    src="../../../assets/noteIcons/archive.svg"></button>
+        </div>
+        <div *ngIf="isArchieveComponent">
+            <button mat-icon-button matTooltip="Unarchieve" (click)="Unarchieve()"><img class="icon" style="padding-top: 20px;"
+                    src="../../../assets/noteIcons/unarchive.svg"></button>
+        </div>
+
+        <div>
+            <button class="more" mat-icon-button matTooltip="More" [matMenuTriggerFor]="menu"><img class="icon"
+                    src="../../../assets/noteIcons/more.svg" alt="more"></button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="trash(notedata)">Delete note</button>
+                <button mat-menu-item>Add drawing</button>
+                <button mat-menu-item>Make a copy</button>
+                <button mat-menu-item>Show checkboxes</button>
+                <button mat-menu-item>Copy to google Docs</button>
+            </mat-menu>
+        </div>
     </div>
     <div *ngIf="isTrashComponent">
-        <div class="flex" *ngIf="isTrashComponent">
-            <div class="icon" mat-icon-button matTooltip="Delete Forever" (click)="delete()"> <img
-                    src="../../../assets/noteIcons/delete forever.svg" width="25px" height="25px">
+        <div class="flex" *ngIf="isTrashComponent" fxLayout="row">
+            <div class="icon" style="padding-top: 18px; opacity: 0.6;" mat-icon-button matTooltip="Delete Forever"
+                (click)="delete()">
+                <img src="../../../assets/noteIcons/delete forever.svg" width="25px" height="25px">
             </div>
-            <div class="icon" mat-icon-button matTooltip="Restore" (click)="trash(notedata)"> <img
-                                        src="../../../assets/noteIcons/Restore from trash.svg" width="25px" height="25px"></div>
+            <div style="padding-top: 18px; opacity: 0.6;" class="icon" mat-icon-button matTooltip="Restore"
+                (click)="trash(notedata)"> <img src="../../../assets/noteIcons/Restore from trash.svg" width="25px"
+                    height="25px"></div>
         </div>
     </div>
 </div>

@@ -19,6 +19,7 @@ export class TrashComponent implements OnInit {
     this.note.getallNote().subscribe((response: any) => {
       console.log(response);
       this.noteList = response.data;
+      this.noteList.reverse();
       this.noteList = this.noteList.filter((obj: any) => {
         return obj.isTrash === true
       })

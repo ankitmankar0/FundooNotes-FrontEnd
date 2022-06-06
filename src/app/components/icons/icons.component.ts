@@ -24,8 +24,7 @@ export class IconsComponent implements OnInit {
   isDisplayNoteComponent = false;
   isArchieveComponent = false;
 
-  colorsArr = [{Colorcode:"white", name:"White"},{Colorcode:"rgb(238, 188, 188)", name:"Red"},{Colorcode:"#fbbc04", name:"Orange"},{Colorcode:"#fff475", name:"Yellow"},{Colorcode:"rgb(175, 215, 175)", name:"Green"},{Colorcode:"aqua", name:"aqua"},
-  {Colorcode:"#cbf0f8", name:"Blue"},{Colorcode:"teal", name:"teal"},{Colorcode:"#d7aefb", name:"Purple"},{Colorcode:"#fdcfe8", name:"Pink"},{Colorcode:"#e6c9a8", name:"Brown"},{Colorcode:"#59158c", name:"purple"}];
+  colorsArr =[{Colorcode:"pink"},{Colorcode:"yellow"},{Colorcode:"orange"},{Colorcode:"rgb(255,99,71)"},{Colorcode:"rgb(152,251,152)"},{Colorcode:"Teal"},{Colorcode:"rgb(106,90,205)"},{Colorcode:"rgb(240,230,140)"},{Colorcode:"rgb(238,130,238)"},{Colorcode:"rgb(255,160,122)"}];
   constructor(private router: ActivatedRoute, private note: NoteService, public dialog: MatDialog, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
@@ -54,6 +53,16 @@ export class IconsComponent implements OnInit {
     })
   }
 
+  restore(note: any) {
+    this.note.trashNote(this.notedata.noteId).subscribe((response: any) => {
+      console.log(response);
+      this.refresh.emit("hello")
+      this.snackBar.open('Note restore successfully..', '', {
+        duration: 2000,
+      })
+    })
+  }
+
   delete() {
     this.note.deleteNote(this.notedata.noteId).subscribe((response: any) => {
       console.log("Note Deleted Successfully", response);
@@ -73,6 +82,18 @@ export class IconsComponent implements OnInit {
 
       })
     })
+  }
+
+  Unarchieve() {
+  
+    this.note.archieveNote(this.notedata.noteId).subscribe((res: any) => {
+      console.log(res);
+      this.refresh.emit("Hello")
+      this.snackBar.open('Note unArchived', '', {
+        duration: 3000,
+       
+      })  
+  })  
   }
 
   changeColor(colour:any)

@@ -13,6 +13,7 @@ import { MatSnackBar, _SnackBarContainer} from '@angular/material/snack-bar';
 export class DashboardComponent implements OnDestroy {
   mobileQuery: MediaQueryList;
   fillerNav = Array.from({ length: 50 }, (_, i) => `Nav Item ${i + 1}`);
+  grid = false;
 
   fillerContent = Array.from(
     { length: 50 },
@@ -47,7 +48,7 @@ export class DashboardComponent implements OnDestroy {
     console.log("logout sucessfully!!!");
     this.snackBar.open('Logout Successfully..!!!','..', {
       duration: 3000,
-    })
-    
+    }) 
   }
+  
 }

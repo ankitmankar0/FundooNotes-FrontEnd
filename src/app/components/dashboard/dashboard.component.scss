@@ -29,6 +29,7 @@
      causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
   flex: 1;
   
+  
 }
 
 .Searchbox {
@@ -90,3 +91,13 @@
 .sidenav {
   width: 200px;
 }
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
