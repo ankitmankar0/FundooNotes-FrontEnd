@@ -10,9 +10,9 @@
         <div class="example-app-name"><img src='../../../assets/Fundoo.png' alt="" width='110' height='14' /></div>
 
 
-        <div class="wholesearchbox" ngClass.xs="div_wrraper-xs" ngClass.md="div_wrraper-md" ngClass.sm="div_wrraper-sm">
-            <img style ="width: 20px; opacity: 0.7; padding-left: 5px;"  src="../../../assets/DashboardIcons/search.svg">
-            <input class="Searchbox" type="text" placeholder="Search">
+        <div class="wholesearchbox" fxHide.xs="true" fxHide.sm="true" ngClass.xs="div_wrraper-xs" ngClass.md="div_wrraper-md" ngClass.sm="div_wrraper-sm">
+            <img style ="width: 20px; opacity: 0.7; padding-left: 5px;" fxLayout.xs="row"  src="../../../assets/DashboardIcons/search.svg">
+            <input class="Searchbox" type="text" (keyup)="keyFunction($event)" placeholder="Search" >
         </div>
 
         <div class="nav">

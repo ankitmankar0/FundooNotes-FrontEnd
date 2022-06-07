@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,Output, EventEmitter, OnInit } from '@angular/core';
 import { NoteService } from 'src/app/services/noteService/note.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -13,6 +13,8 @@ export class CreateNoteComponent implements OnInit {
   createnoteForm!: FormGroup;
   submitted = false;
   isShow = false;
+
+  @Output() messageEvent = new EventEmitter<string>();
   constructor(private formBuilder: FormBuilder,private note: NoteService,private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
@@ -24,6 +26,7 @@ export class CreateNoteComponent implements OnInit {
   }
 
   OnSubmit() {
+    this.isShow = false;
     this.submitted = true;
     console.log("api calling")
     
@@ -36,6 +39,7 @@ export class CreateNoteComponent implements OnInit {
       this.note.createNote(reqData).subscribe((response: any) => {
         console.log(response)
         localStorage.setItem("token", response.data)
+        this.messageEvent.emit("hello")
         this.snackBar.open('Note added successfully', '', {
           duration:2000,
          }); 
@@ -44,9 +48,6 @@ export class CreateNoteComponent implements OnInit {
   }
   show() {
     this.isShow = true
-  }
-  close() {
-    this.isShow = false;
   }
 }
 
