@@ -1,24 +1,27 @@
-<div class="container" fxLayout="column" fxLayoutAlign="space-between center" >
+<div class="container" fxLayout="column" fxLayoutAlign="space-between center">
     <div class="note" style="border: 2px solid rgb(227, 222, 222); width:40%">
         <form [formGroup]="createnoteForm" (ngSubmit)="OnSubmit()">
-            <div *ngIf="isShow" fxLayout="row" fxLayout.xs="row" >
-                <input class="title" style="width:99%; opacity:9;" formControlName= "title" placeholder="Title">
-                <img style="opacity: 0.7;" src="../../../assets/noteIcons/pinnote.svg" alt="pin">
+            <div *ngIf="isShow" fxLayout="row" fxLayout.xs="row">
+                <input class="title" style="width:99%; opacity:9;" formControlName="title" placeholder="Title">
+                <div>
+                    <img style="opacity: 0.7;" src="../../../assets/noteIcons/pinnote.svg" alt="pin">
+                </div>
             </div>
 
-            <div fxLayout="row" *ngIf="!isShow || isShow" (click)="show()">
-                <input class="takenote" style="width: 90%; opacity: 10;" formControlName= "description"  placeholder="Take a note ...">  
-            <div *ngIf="!isShow" class="icons" fxLayoutAlign="space-between center" >
-                <button mat-icon-button matTooltip="New list"> <img
-                        src="../../../assets/noteIcons/check_box.svg"></button>
-                <button mat-icon-button matTooltip=" New note with drawing"> <img
-                        src="../../../assets/noteIcons/brush.svg"></button>
-                <button mat-icon-button matTooltip=" New note with image"> <img
-                        src="../../../assets/noteIcons/add image.svg"></button>
+            <div *ngIf="!isShow || isShow" (click)="show()" fxLayout="row">
+                <input class="takenote" style="width: 90%; opacity: 10;" formControlName="description"
+                    placeholder="Take a note ...">
+                <div *ngIf="!isShow" class="icons" fxLayoutAlign="space-between center">
+                    <button mat-icon-button matTooltip="New list"> <img
+                            src="../../../assets/noteIcons/check_box.svg"></button>
+                    <button mat-icon-button matTooltip=" New note with drawing"> <img
+                            src="../../../assets/noteIcons/brush.svg"></button>
+                    <button mat-icon-button matTooltip=" New note with image"> <img
+                            src="../../../assets/noteIcons/add image.svg"></button>
+                </div>
             </div>
-        </div>
-        
-            <div class="flex" *ngIf="isShow"  fxLayout="row" fxLayoutAlign="space-between center">
+
+            <div class="flex" *ngIf="isShow" fxLayout="row" fxLayoutAlign="space-between center">
                 <app-icons></app-icons>
                 <div fxLayoutAlign="end end">
                     <button mat-button style="opacity: 0.7;">Close</button>

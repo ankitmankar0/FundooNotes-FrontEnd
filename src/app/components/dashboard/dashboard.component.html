@@ -1,18 +1,20 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches" fxLayout="column">
     <mat-toolbar color="white" class="example-toolbar" fxLayout.xs="row">
-        <div fxLayout="row" ngClass.xs="menu-xs" fxLayout.xs="10" >
+        <div fxLayout="row" ngClass.xs="menu-xs" fxLayout.xs="10">
             <button style="border: 0px;" mat-icon-button (click)="snav.toggle()">
                 <mat-icon>menu</mat-icon>
             </button>
-            </div>
+        </div>
         <img class="keepImage" src="../../../assets/DashboardIcons/keep.png">
         <!-- <h1 class="example-app-name">FundooNotes</h1> -->
         <div class="example-app-name"><img src='../../../assets/Fundoo.png' alt="" width='110' height='14' /></div>
 
 
-        <div class="wholesearchbox" fxHide.xs="true" fxHide.sm="true" ngClass.xs="div_wrraper-xs" ngClass.md="div_wrraper-md" ngClass.sm="div_wrraper-sm">
-            <img style ="width: 20px; opacity: 0.7; padding-left: 5px;" fxLayout.xs="row"  src="../../../assets/DashboardIcons/search.svg">
-            <input class="Searchbox" type="text" (keyup)="keyFunction($event)" placeholder="Search" >
+        <div class="wholesearchbox" fxHide.xs="true" fxHide.sm="true" ngClass.xs="div_wrraper-xs"
+            ngClass.md="div_wrraper-md" ngClass.sm="div_wrraper-sm">
+            <img style="width: 20px; opacity: 0.7; padding-left: 5px;" fxLayout.xs="row"
+                src="../../../assets/DashboardIcons/search.svg">
+            <input class="Searchbox" type="text" (keyup)="SearchNote($event)" placeholder="Search">
         </div>
 
         <div class="nav">
@@ -20,22 +22,23 @@
                     src="../../../assets/DashboardIcons/refresh.svg"></button>
         </div>
 
-        <div class="view" >
+        <div class="view">
             <button style="border:0px; background-color:transparent; padding-left: 15px;"><img
                     style="padding-top: 10px;block-size:25px;"
                     src="../../../assets/DashboardIcons/list view.svg"></button>
         </div>
 
         <div>
-            <button class="button" ><img style="padding-top: 10px;block-size:25px;"
+            <button class="button"><img style="padding-top: 10px;block-size:25px;"
                     src="../../../assets/DashboardIcons//settings.svg"></button>
         </div>
         <div>
             <button class="button"><img style="padding-top: 12px; padding-left: 50px;block-size:25px;"
                     src="../../../assets/DashboardIcons/apps.svg"></button>
         </div>
-        <div >
-            <button class="button" (click)="logout()"><img style="padding-top:12px margin-left=50px;block-size:25px;margin-top: 12px;"
+        <div>
+            <button class="button" (click)="logout()"><img
+                    style="padding-top:12px margin-left=50px;block-size:25px;margin-top: 12px;"
                     src="../../../assets/DashboardIcons/person.svg"></button>
         </div>
     </mat-toolbar>
@@ -46,24 +49,44 @@
             <mat-nav-list class="sidenav">
 
                 <a mat-list-item routerLink="/dashboard/notes">
-                    <img class="icon" src="../../../assets/DashboardIcons/lightbulb.svg" alt="Notes" style="padding-right: 30px; opacity: 0.7;">
+                    <img class="icon" src="../../../assets/DashboardIcons/lightbulb.svg" alt="Notes"
+                        style="padding-right: 30px; opacity: 0.7;">
                     notes</a>
                 <a mat-list-item routerLink=".">
-                    <img class="icon" src="../../../assets/DashboardIcons/notifications.svg" alt="Reminder" style="padding-right: 30px; opacity: 0.7;">
+                    <img class="icon" src="../../../assets/DashboardIcons/notifications.svg" alt="Reminder"
+                        style="padding-right: 30px; opacity: 0.7;">
                     Reminder</a>
-                <a mat-list-item routerLink=".">
-                    <img class="icon" src="../../../assets/DashboardIcons/edit.svg" alt="Edit Lable" style="padding-right: 30px; opacity: 0.7;">
-                    Edit Lable</a>
+
+                <div fxLayout="row" fxLayoutAlign="start center" style="vertical-align: center;"
+                    *ngFor="let Label of ArrayOfLabel">
+                    <mat-nav-list>
+                        <a mat-list-item>
+                            <img src="./../../../assets/Label/label.svg" alt="img"
+                                style="height: 20px; width: 20px; padding-right: 30px; opacity: 0.7;" class="icon">
+                            {{Label.labelName}}
+                        </a>
+                    </mat-nav-list>
+                </div>
+
+                <a mat-list-item (click)="openDialog()">
+                    <img class="icon" src="../../../assets/DashboardIcons/edit.svg" alt="Edit Lable"
+                        style="padding-right: 30px; opacity: 0.7;">
+                    Edit Lable
+                </a>
+
+
                 <a mat-list-item routerLink="/dashboard/archive">
-                    <img class="icon" src="../../../assets/DashboardIcons/archive.svg" alt="Archive" style="padding-right: 30px; opacity: 0.7;">
+                    <img class="icon" src="../../../assets/DashboardIcons/archive.svg" alt="Archive"
+                        style="padding-right: 30px; opacity: 0.7;">
                     archive</a>
                 <a mat-list-item routerLink="/dashboard/Trash">
-                    <img class="icon" src="../../../assets/DashboardIcons/delete.svg" alt="Trash" style="padding-right: 30px; opacity: 0.7;">
+                    <img class="icon" src="../../../assets/DashboardIcons/delete.svg" alt="Trash"
+                        style="padding-right: 30px; opacity: 0.7;">
                     Trash</a>
             </mat-nav-list>
         </mat-sidenav>
         <mat-sidenav-content>
             <router-outlet></router-outlet>
-          </mat-sidenav-content>
+        </mat-sidenav-content>
     </mat-sidenav-container>
 </div>

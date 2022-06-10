@@ -18,23 +18,28 @@ export class DisplaynoteComponent implements OnInit {
 
 
 
+
   constructor(public dialog: MatDialog, private data: DataService) { }
 
   ngOnInit(): void {
-    this.data.currentMessage.subscribe(message => 
-      this.FilterMsg = message)
+    this.data.recieveData.subscribe(message => {
+      console.log(message, 'It is in Display Component')     
+     this.FilterMsg = message 
+    })
+    
   }
  
   openDialog(note: any): void {
     const dialogRef = this.dialog.open(UpdateComponent, {
       width: '400px',
-      data: note,
+      data: note,    
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
   }
+  
 
   receivedMessage(event: any) {
     console.log(event);

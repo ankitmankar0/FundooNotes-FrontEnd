@@ -34,6 +34,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { AuthguardService } from './services/authService/authguard.service';
 import {MatMenuModule} from '@angular/material/menu';
 import { FilterPipe } from './pipes/filter.pipe';
+import { LabelComponent } from './components/label/label.component';
+
 
 
 
@@ -55,6 +57,7 @@ import { FilterPipe } from './pipes/filter.pipe';
     ArchiveComponent,
     UpdateComponent,
     FilterPipe,
+    LabelComponent,
   ],
   imports: [
     BrowserModule,

@@ -21,7 +21,7 @@ const routes: Routes = [
     children: [
       { path: 'notes', component: GetAllNotesComponent },
       { path: 'archive', component: ArchiveComponent },
-      { path: 'Trash', component: TrashComponent },
+      { path: 'Trash', component: TrashComponent },     
     ]
   }
 
