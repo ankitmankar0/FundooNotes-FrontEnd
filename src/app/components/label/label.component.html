@@ -13,12 +13,12 @@
         <mat-divider class="divider"></mat-divider>
     </div>
 
-    <!-- <div >
+    <!-- <div *ngFor="let Label of ArrayOfLabel">
         <div fxLayout="row" fxLayoutAlign="space-between end" class="labels" >
             <img src="../../../assets/Label/label.svg" style="opacity: 0.7;" alt="" (mouseover)="show()"
                 *ngIf="!isDelete" >
             <img (mouseout)="show()" *ngIf="isDelete" (click)="DeleteLabel()" style="opacity: 0.7;"
-                src="../../../assets/Label/deletelabel.svg" alt="">
+                src="../../../assets/Label/deletelabel.svg" alt="">{{Label.labelName}}
         </div>
     </div> -->
 

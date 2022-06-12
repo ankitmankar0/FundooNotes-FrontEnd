@@ -34,7 +34,7 @@ export class LabelComponent implements OnInit {
     let data = {
       labelName: this.labelName
     }
-    this.labelservice.deleteLabel(data).subscribe((response: any) => {
+    this.labelservice.deleteLabel(data.labelName).subscribe((response: any) => {
       console.log(response);
     })
   }
