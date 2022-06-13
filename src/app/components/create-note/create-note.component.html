@@ -1,4 +1,4 @@
-<div class="container" fxLayout="column" fxLayoutAlign="space-between center">
+<div class="container" fxFlex=100 fxLayout="column" fxLayoutAlign="space-between center">
     <div class="note" style="border: 2px solid rgb(227, 222, 222); width:40%">
         <form [formGroup]="createnoteForm" (ngSubmit)="OnSubmit()">
             <div *ngIf="isShow" fxLayout="row" fxLayout.xs="row">
@@ -11,7 +11,7 @@
             <div *ngIf="!isShow || isShow" (click)="show()" fxLayout="row">
                 <input class="takenote" style="width: 90%; opacity: 10;" formControlName="description"
                     placeholder="Take a note ...">
-                <div *ngIf="!isShow" class="icons" fxLayoutAlign="space-between center">
+                <div *ngIf="!isShow" class="box" fxLayout="row" >
                     <button mat-icon-button matTooltip="New list"> <img
                             src="../../../assets/noteIcons/check_box.svg"></button>
                     <button mat-icon-button matTooltip=" New note with drawing"> <img

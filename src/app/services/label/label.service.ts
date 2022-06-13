@@ -32,7 +32,7 @@ export class LabelService {
         'Authorization': 'Bearer ' + this.token
       })
     }
-    return this.httpservice.deleteService(`Label/DeleteLabel/${reqdata.labelName}`,true, headerOption)
+    return this.httpservice.deleteService(`Label/DeleteLabel/${reqdata.LabelId}`, true, headerOption)
   }
 
   getallLabel() {

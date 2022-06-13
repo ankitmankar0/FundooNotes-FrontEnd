@@ -71,4 +71,26 @@ button:focus {
     padding-bottom: 30px;
 }
 
+.box {
 
+    opacity:0.6;
+}
+
+
+element.style {
+    border: -5px solid rgb(227, 222, 222);
+    width: 40%;
+}
+
+.note[_ngcontent-sxw-c178] {
+    padding: 5px;
+    box-shadow: 0px 3px 6px #00000029;
+}
+
+@media only screen and (max-width: 600px) {
+    .note {
+       display: flex;
+    }
+    .takeAnote {width: 85%;}
+    .flex {padding-top: 10px;}
+}

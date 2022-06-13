@@ -16,9 +16,11 @@ export class LabelComponent implements OnInit {
   isLable: boolean = false;
   isDelete: boolean = false;
   ArrayOfLabel: any
-  constructor(public dialogRef: MatDialogRef<LabelComponent>, private labelservice: LabelService, @Inject(MAT_DIALOG_DATA) public data: any, public Data:DataService) { }
+  delete = false;
+  labelId: any
+  constructor(public dialogRef: MatDialogRef<LabelComponent>, private labelservice: LabelService, @Inject(MAT_DIALOG_DATA) public data: any, public Data: DataService) { }
 
-  
+
 
   create() {
     let reqData = {
@@ -30,11 +32,11 @@ export class LabelComponent implements OnInit {
     })
   }
 
-  DeleteLabel() {
-    let data = {
-      labelName: this.labelName
+  DeleteLabel(Label: any) {
+    let reqdata ={
+      LabelId:Label,
     }
-    this.labelservice.deleteLabel(data.labelName).subscribe((response: any) => {
+    this.labelservice.deleteLabel(reqdata).subscribe((response: any) => {
       console.log(response);
     })
   }
@@ -43,15 +45,14 @@ export class LabelComponent implements OnInit {
     this.GetLabels();
   }
 
-  GetLabels()
-  {
+  GetLabels() {
     this.labelservice.getallLabel()
-    .subscribe((result: any)=>{
-      console.log(result);
-      this.ArrayOfLabel = result.data;
-      console.log(this.ArrayOfLabel);
-      
-    })
+      .subscribe((result: any) => {
+        console.log(result);
+        this.ArrayOfLabel = result.data;
+        console.log(this.ArrayOfLabel);
+
+      })
   }
   hideAndShow() {
     console.log("calling hide")
